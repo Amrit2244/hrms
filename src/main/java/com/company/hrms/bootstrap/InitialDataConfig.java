@@ -51,10 +51,8 @@ public class InitialDataConfig {
                 );
             }
 
-            if (adminPassword.length() < 14) {
-                throw new IllegalStateException(
-                    "ADMIN_PASSWORD must be at least 14 characters."
-                );
+           if (adminPassword.length() < 4) {
+           throw new IllegalStateException("ADMIN_PASSWORD must be at least 4 characters.");
             }
 
             Organization org = organizations.findAll()
