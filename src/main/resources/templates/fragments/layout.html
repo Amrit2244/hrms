@@ -8,6 +8,9 @@
    <li class="nav-item"><a class="nav-link" th:href="@{/dashboard}">Dashboard</a></li>
    <li class="nav-item" sec:authorize="hasAnyRole('SUPER_ADMIN','HR_ADMIN','HR_MANAGER')"><a class="nav-link" th:href="@{/employees}">Employees</a></li>
    <li class="nav-item" sec:authorize="hasAnyRole('SUPER_ADMIN','HR_ADMIN','HR_MANAGER')"><a class="nav-link" th:href="@{/departments}">Departments</a></li>
+   <li class="nav-item" sec:authorize="hasAnyRole('SUPER_ADMIN','HR_ADMIN','HR_MANAGER')"><a class="nav-link" th:href="@{/attendance}">Attendance</a></li>
+   <li class="nav-item" sec:authorize="hasAnyRole('SUPER_ADMIN','HR_ADMIN','HR_MANAGER')"><a class="nav-link" th:href="@{/leave-requests}">Leave</a></li>
+   <li class="nav-item" sec:authorize="hasAnyRole('SUPER_ADMIN','HR_ADMIN','HR_MANAGER')"><a class="nav-link" th:href="@{/holidays}">Holidays</a></li>
    <li class="nav-item" sec:authorize="hasRole('SUPER_ADMIN')"><a class="nav-link" th:href="@{/admin/registrations}">Registration approvals</a></li>
   </ul><div class="d-flex align-items-center gap-3"><span class="text-white-50 small" sec:authentication="name"></span><form th:action="@{/logout}" method="post"><button class="btn btn-outline-light btn-sm">Sign out</button></form></div></div>
  </div>

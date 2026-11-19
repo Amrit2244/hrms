@@ -30,7 +30,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/login", "/register", "/error", "/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
                 .requestMatchers("/admin/**").hasRole("SUPER_ADMIN")
-                .requestMatchers("/employees/**", "/departments/**").hasAnyRole("SUPER_ADMIN", "HR_ADMIN", "HR_MANAGER")
+                .requestMatchers("/employees/**", "/departments/**", "/attendance/**", "/leave-requests/**", "/holidays/**").hasAnyRole("SUPER_ADMIN", "HR_ADMIN", "HR_MANAGER")
                 .anyRequest().authenticated())
             .formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/dashboard", true).failureUrl("/login?error").permitAll())
             .logout(logout -> logout.logoutSuccessUrl("/login?logout").invalidateHttpSession(true).deleteCookies("JSESSIONID"))
