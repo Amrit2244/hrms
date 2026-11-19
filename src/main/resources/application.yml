@@ -1,0 +1,38 @@
+server:
+  port: ${SERVER_PORT:8080}
+  address: ${SERVER_ADDRESS:0.0.0.0}
+  servlet:
+    session:
+      timeout: 30m
+      cookie:
+        http-only: true
+        same-site: lax
+spring:
+  application:
+    name: java-hrms
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/hrms_db}
+    username: ${DB_USERNAME:hrms_user}
+    password: ${DB_PASSWORD:CHANGE_ME}
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  thymeleaf:
+    cache: false
+  mvc:
+    problemdetails:
+      enabled: true
+logging:
+  level:
+    org.springframework.security: INFO
+    com.company.hrms: INFO
